@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {  
@@ -106,9 +107,8 @@ class PostController extends Controller
         }
 
         //store function to get the data from form and store it into database
-        public function store(){
-
-            $request=request();
+        public function store(PostRequest $request){
+            // $request=request();
  
             // $data=['title'=>"$request->title" , 
             //         'description'=>"$request->description",
