@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {  
+
+    //index function to show all posts in table 
     public function index(){
          $Posts=[
             [
@@ -32,6 +34,7 @@ class PostController extends Controller
         ]);
         }
 
+        //show funtion to show one post in individual page
         public function show(){
             $Posts=[
                 [
@@ -62,6 +65,7 @@ class PostController extends Controller
             ]);
         }
 
+        //create function to get data from creatPostForm
         public function create(){
             $Posts=[
                 [
@@ -88,6 +92,7 @@ class PostController extends Controller
             ]);
         }
 
+        //store function to get the data from form and store it into database
         public function store(){
             $request=request();
             // function addToArray(){
