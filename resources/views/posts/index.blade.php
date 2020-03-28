@@ -15,10 +15,12 @@
                 @foreach ($Posts as $post)
                 <tbody>
                     <tr>
-                    <th scope="row">{{$post['id']}}</th>
-                    <td>{{$post['title']}}</td>
-                    <td>{{$post['createdBy']}}</td>
-                    <td>{{$post['createdAt']}}</td>
+                    <th scope="row">{{ $post->id }}</th>
+                    <td>{{ $post->title }}</td>
+                    <td>{{ $post->description }}</td>
+
+                    <td>{{ $post->user ? $post->user->name : 'not exist'}}</td>
+                    <td>{{ $post->created_at }}</td>
                     <td><a href="{{route('Posts.show',['Post'=>$post['id']])}}" class="btn btn-primary btn-sm" style="background-color:#4527a0 ; border-color:#7e57c2 ;">view details</a></td>
                     </tr>
                 </tbody>
