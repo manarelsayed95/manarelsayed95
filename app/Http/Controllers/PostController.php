@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
-{   public function index(){
-        $Posts=[
+{  
+    public function index(){
+         $Posts=[
             [
                 'id'=>1,
                 'title'=>'first post',
@@ -23,16 +24,12 @@ class PostController extends Controller
                 'createdAt'=>'2018-06-01',
             ],
         ];
-
-        return view('index',[
+        return view('posts.index',[
             'Posts'=>$Posts,
         ]);
         }
 
         public function show(){
-
-            $request=request();
-            $PostId=$request->Post;
             $Posts=[
                 [
                     'id'=>1,
@@ -50,11 +47,27 @@ class PostController extends Controller
                     'createdAt'=>'2018-06-01',
                 ],
             ];
-
+            $request=request();
+            $PostId=$request->Post;
             $Post=$Posts["$PostId"];
     
-            return view('show',[
+            return view('posts.show',[
                 'Post'=>$Post,
             ]);
-            }
+        }
+
+        public function create(){
+            return view('posts.create');
+        }
+
+        public function store(){
+            $request=request();
+            // function addToArray(){
+                $data=['title'=>"$request->title" , 'description'=>"$request->description"];
+                dd($data);
+            //     $Posts[]=$data;
+            // }
+            // POST::addToArray();
+            return redirect('posts.index');
+        }
 }

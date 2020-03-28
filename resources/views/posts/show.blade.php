@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+    @section('content')
         <center>
         <div class="container mt-5">
 
@@ -14,4 +14,4 @@
             </div>
         </div>
         </center>
-        @endsection
+    @endsection
