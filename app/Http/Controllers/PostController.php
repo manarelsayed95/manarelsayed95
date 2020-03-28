@@ -12,16 +12,19 @@ class PostController extends Controller
                 'id'=>1,
                 'title'=>'first post',
                 'createdAt'=>'2018-05-01',
+                'createdBy'=>'manar',
             ],
             [
                 'id'=>2,
                 'title'=>'second post',
                 'createdAt'=>'2018-05-20',
+                'createdBy'=>'mayar',
             ],
             [
                 'id'=>3,
                 'title'=>'third post',
                 'createdAt'=>'2018-06-01',
+                'createdBy'=>'marwa',
             ],
         ];
         return view('posts.index',[
@@ -35,16 +38,19 @@ class PostController extends Controller
                     'id'=>1,
                     'title'=>'first post',
                     'createdAt'=>'2018-05-01',
+                    'createdBy'=>'manar',
                 ],
                 [
                     'id'=>2,
                     'title'=>'second post',
                     'createdAt'=>'2018-05-20',
+                    'createdBy'=>'mayar',
                 ],
                 [
                     'id'=>3,
                     'title'=>'third post',
                     'createdAt'=>'2018-06-01',
+                    'createdBy'=>'marwa',
                 ],
             ];
             $request=request();
@@ -57,13 +63,38 @@ class PostController extends Controller
         }
 
         public function create(){
-            return view('posts.create');
+            $Posts=[
+                [
+                    'id'=>1,
+                    'title'=>'first post',
+                    'createdAt'=>'2018-05-01',
+                    'createdBy'=>'manar',
+                ],
+                [
+                    'id'=>2,
+                    'title'=>'second post',
+                    'createdAt'=>'2018-05-20',
+                    'createdBy'=>'mayar',
+                ],
+                [
+                    'id'=>3,
+                    'title'=>'third post',
+                    'createdAt'=>'2018-06-01',
+                    'createdBy'=>'marwa',
+                ],
+            ];
+            return view('posts.create',[
+                'Posts'=>$Posts,
+            ]);
         }
 
         public function store(){
             $request=request();
             // function addToArray(){
-                $data=['title'=>"$request->title" , 'description'=>"$request->description"];
+                $data=['title'=>"$request->title" , 
+                       'description'=>"$request->description",
+                       'createdBy'=>"$request->createdBy",
+                    ];
                 dd($data);
             //     $Posts[]=$data;
             // }
