@@ -27,7 +27,9 @@ Route::post('/Posts/store', 'PostController@store')->name('Posts.store');
 //show view "have all details about one post"
 Route::get('/Posts/{Post}', 'PostController@show')->name('Posts.show');
 //delete post
-Route::get('/Posts/{Post}/delete', 'PostController@destroy')->name('Posts.destroy');
+Route::DELETE('/Posts/{Post}/delete', 'PostController@destroy')->name('Posts.destroy');
+//edit post
+Route::get('/Posts/{Post}/edit', 'PostController@edit')->name('Posts.edit');
 
 });
 

@@ -35,9 +35,11 @@
                     <td><a href="{{route('Posts.show',['Post' => $post['id']])}}" class="btn btn-primary btn-sm" style="background-color:#4527a0 ; border-color:#7e57c2 ;">view</a></td>
                     <td><a href="#" class="btn btn-primary btn-sm" style="background-color: green;  border-color:green;">edit</a></td>
                     <td>
-                        <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to delete?')" style="background-color: red; border-color:red;">
-                            <a href="{{route('Posts.destroy',['Post'=>$post['id']])}}" style="color:white;">delete</a></button>
-                      
+                        <form method="POST" action="{{route('Posts.destroy',['Post'=>$post['id']])}}">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to delete?')" style="background-color: red; border-color:red;">delete</button>
+                        </form> 
                     </td>                 
                     </tr>
                 </tbody>
