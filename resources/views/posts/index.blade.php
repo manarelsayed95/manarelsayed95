@@ -10,6 +10,8 @@
                     <th></th>
                     <th scope="col">Title</th>
                     <th></th>
+                    <th scope="col">Description</th>
+                    <th></th>
                     <th scope="col">CreatedBy</th>
                     <th></th>
                     <th scope="col">CreatedAt</th>
@@ -29,8 +31,14 @@
                     <td>{{ $post->user ? $post->user->name : 'not exist'}}</td>
                     <td></td>
                     <td>{{ $post->created_at }}</td>
-                    <td></td>
-                    <td><a href="{{route('Posts.show',['Post'=>$post['id']])}}" class="btn btn-primary btn-sm" style="background-color:#4527a0 ; border-color:#7e57c2 ;">view details</a></td>
+                    <!-- <td></td> -->
+                    <td><a href="{{route('Posts.show',['Post' => $post['id']])}}" class="btn btn-primary btn-sm" style="background-color:#4527a0 ; border-color:#7e57c2 ;">view</a></td>
+                    <td><a href="#" class="btn btn-primary btn-sm" style="background-color: green;  border-color:green;">edit</a></td>
+                    <td>
+                        <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to delete?')" style="background-color: red; border-color:red;">
+                            <a href="{{route('Posts.destroy',['Post'=>$post['id']])}}" style="color:white;">delete</a></button>
+                      
+                    </td>                 
                     </tr>
                 </tbody>
                 @endforeach

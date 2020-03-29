@@ -136,6 +136,15 @@ class PostController extends Controller
             ]);
 
             //redirect to /posts
-            return redirect('Posts.index');
+            return redirect()->route('Posts.index');
+        }
+
+        public function destroy(){
+            $request=request();
+            $PostId=$request->Post;
+
+            $deleted = Post::find($PostId)->delete();
+            //redirect to /posts
+            return redirect()->route('Posts.index');
         }
 }
