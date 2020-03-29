@@ -15,6 +15,7 @@ class PostController extends Controller
 
         $Posts = Post::all();
 
+     /*I have worked on array to test code before using database
         //  $Posts=[
         //     [
         //         'id'=>1,
@@ -35,6 +36,7 @@ class PostController extends Controller
         //         'createdBy'=>'marwa',
         //     ],
         // ];
+        */
 
         return view('posts.index',[
             'Posts'=>$Posts,
@@ -43,7 +45,7 @@ class PostController extends Controller
 
         //show funtion to show one post in individual page
         public function show(){
-
+            /*I have worked on array to test code before using database
             // $Posts=[
             //     [
             //         'id'=>1,
@@ -65,11 +67,14 @@ class PostController extends Controller
             //     ],
             // ];
 
+            // $Post=$Posts["$PostId"];
+            */
+
             $request=request();
             $PostId=$request->Post;
             $Post = Post::find($PostId);
 
-            // $Post=$Posts["$PostId"];
+         
     
             return view('posts.show',[
                 'Post'=>$Post,
@@ -78,6 +83,8 @@ class PostController extends Controller
 
         //create function to get data from creatPostForm
         public function create(){
+
+            /*I have worked on array to test code before using database
             // $Posts=[
             //     [
             //         'id'=>1,
@@ -98,6 +105,7 @@ class PostController extends Controller
             //         'createdBy'=>'marwa',
             //     ],
             // ];
+            */
 
             $users = User::all();
 
@@ -108,13 +116,16 @@ class PostController extends Controller
 
         //store function to get the data from form and store it into database
         public function store(PostRequest $request){
+
+            /*I have worked on array to test code before using database
             // $request=request();
- 
             // $data=['title'=>"$request->title" , 
             //         'description'=>"$request->description",
             //         'createdBy'=>"$request->createdBy",
             //     ];
             // dd($data);
+            */
+
 
             //store the request data in the db
 
@@ -125,6 +136,6 @@ class PostController extends Controller
             ]);
 
             //redirect to /posts
-            return redirect('posts.index');
+            return redirect('Posts.index');
         }
 }
