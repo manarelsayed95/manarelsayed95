@@ -14,15 +14,20 @@ class Postcontroller extends Controller
 {
     //get all posts from database
     public function index(){
-        //get the model object of Post
-        
-        // dd(Post::all());
-       $posts=Post::all();
 
-       //use the transformation layer
-       $postResource=PostResource::collection($posts);
+    //    get the model object of Post
+    //    dd(Post::all());
+    //    use the transformation layer
+    //   return the result of transformation layer
+       return PostResource::collection(
+            Post::all()
+       ); 
+    }
 
-       //return the result of transformation layer
-       return $postResource;
+    public function show($post){
+        return  Post::find($post) ?
+            new PostResource(
+                Post::find($post)
+            ) : 'not exist';
     }
 }
