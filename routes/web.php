@@ -32,7 +32,7 @@ Route::DELETE('/Posts/{Post}/delete', 'PostController@destroy')->name('Posts.des
 //edit post
 Route::get('/Posts/{Post}/edit', 'PostController@edit')->name('Posts.edit');
 //update post
-Route::put('/Posts/{Post}/update','PostController@update')->name('Posts.update');
+Route::put('/Posts/{Post}','PostController@update')->name('Posts.update');
 
 });
 

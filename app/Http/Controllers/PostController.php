@@ -165,6 +165,7 @@ class PostController extends Controller
             ]);
         }
         public function update(PostRequest $request){
+
             $request=request();
             $PostId=$request->Post;
             $Post = Post::find($PostId);

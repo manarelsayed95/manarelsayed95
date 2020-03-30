@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PostRequest extends FormRequest
 {
@@ -25,8 +26,10 @@ class PostRequest extends FormRequest
     {
         return [
             //
-            'title' => 'required|min:3',
+            'title' => 'required|min:3|unique:posts,title,'.$this->Post,
+            // dd($this->Post),
             'description' => 'required|min:10',
+            'user_id'=>'exists:posts'
         ];
     }
 

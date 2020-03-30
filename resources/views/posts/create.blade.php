@@ -14,9 +14,11 @@
     <center>
         <div class="container mt-5">
             <form method="POST" action= '{{$action}}'>
+
                 @if(isset($Post))
                     @method('PUT')
                 @endif
+                
                 @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Post-Title</label>
