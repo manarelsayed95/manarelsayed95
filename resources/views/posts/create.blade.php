@@ -18,7 +18,7 @@
                 @if(isset($Post))
                     @method('PUT')
                 @endif
-                
+
                 @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Post-Title</label>
@@ -66,6 +66,9 @@
                         @endif
                    
                     </select>
+                    @error('user_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 
                 <button name="submit" type="submit" class="btn btn-primary">Submit</button>

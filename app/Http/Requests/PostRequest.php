@@ -41,6 +41,7 @@ class PostRequest extends FormRequest
             'description.required' => 'The description field is required.',
             'title.min' => 'The title can not be less than 3 characters.',
             'description.min' => 'The description can not be less than 10 characters.',
+            'user_id.exists' =>'user does not exist',
             
         ];
     }
