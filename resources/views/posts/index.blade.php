@@ -33,7 +33,7 @@
                     <td>{{ $post->created_at }}</td>
                     <!-- <td></td> -->
                     <td><a href="{{route('Posts.show',['Post' => $post['id']])}}" class="btn btn-primary btn-sm" style="background-color:#4527a0 ; border-color:#7e57c2 ;">view</a></td>
-                    <td><a href="#" class="btn btn-primary btn-sm" style="background-color: green;  border-color:green;">edit</a></td>
+                    <td><a href="{{route('Posts.edit',['Post'=> $post['id']])}}" class="btn btn-primary btn-sm" style="background-color: green;  border-color:green;">edit</a></td>
                     <td>
                         <form method="POST" action="{{route('Posts.destroy',['Post'=>$post['id']])}}">
                             @method('DELETE')
@@ -45,6 +45,7 @@
                 </tbody>
                 @endforeach
             </table>
+            {{ $Posts->links() }}
         </div>
         </center>
 @endsection

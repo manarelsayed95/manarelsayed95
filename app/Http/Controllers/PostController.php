@@ -13,7 +13,7 @@ class PostController extends Controller
     //index function to show all posts in table 
     public function index(){
 
-        $Posts = Post::all();
+        $Posts = Post::Paginate(5);
 
      /*I have worked on array to test code before using database
         //  $Posts=[
@@ -108,9 +108,10 @@ class PostController extends Controller
             */
 
             $users = User::all();
-
+            $action =route('Posts.store');
             return view('posts.create',[
                 'users'=> $users,
+                'action'=> $action,
             ]);
         }
 
@@ -144,6 +145,35 @@ class PostController extends Controller
             $PostId=$request->Post;
 
             $deleted = Post::find($PostId)->delete();
+            //redirect to /posts
+            return redirect()->route('Posts.index');
+        }
+
+        public function edit(){
+
+            $request=request();
+            $PostId=$request->Post;
+            $Post = Post::find($PostId);
+            $users = User::all();
+            $action =route('Posts.update',['Post'=>$PostId]);
+
+            return view('posts.create',[
+                'users'=> $users,
+                'Post'=>$Post,
+                'action'=> $action,
+
+            ]);
+        }
+        public function update(PostRequest $request){
+            $request=request();
+            $PostId=$request->Post;
+            $Post = Post::find($PostId);
+            $users = User::all();
+            $Post->title=$request->title;
+            $Post->description=$request->description;
+            $Post->user_id=$request->user_id;
+            $Post->save();
+
             //redirect to /posts
             return redirect()->route('Posts.index');
         }

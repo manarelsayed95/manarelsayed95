@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,8 @@ Route::get('/Posts/{Post}', 'PostController@show')->name('Posts.show');
 Route::DELETE('/Posts/{Post}/delete', 'PostController@destroy')->name('Posts.destroy');
 //edit post
 Route::get('/Posts/{Post}/edit', 'PostController@edit')->name('Posts.edit');
+//update post
+Route::put('/Posts/{Post}/update','PostController@update')->name('Posts.update');
 
 });
 
