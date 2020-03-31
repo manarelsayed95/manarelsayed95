@@ -10,6 +10,8 @@
                     <th></th>
                     <th scope="col">Title</th>
                     <th></th>
+                    <th scope="col">Title-Slug</th>
+                    <th></th>
                     <th scope="col">Description</th>
                     <th></th>
                     <th scope="col">CreatedBy</th>
@@ -25,6 +27,8 @@
                     <th scope="row">{{ $post->id }}</th>
                     <th></th>
                     <td>{{ $post->title }}</td>
+                    <td></td>
+                    <td>{{ $post->slug }}</td>
                     <td></td>
                     <td>{{ $post->description }}</td>
                     <td></td>
