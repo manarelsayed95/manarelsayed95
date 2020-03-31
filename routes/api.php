@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/Posts','API\Postcontroller@index')->middleware('auth:sanctum');
-Route::get('/Posts/{post}','API\Postcontroller@show');
+Route::get('/Posts/{post}','API\Postcontroller@show')->middleware('auth:sanctum');
 
 Route::post('/sanctum/token', function (Request $request) {
     $request->validate([
