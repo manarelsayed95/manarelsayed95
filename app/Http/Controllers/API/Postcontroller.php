@@ -20,7 +20,8 @@ class Postcontroller extends Controller
     //    use the transformation layer
     //   return the result of transformation layer
        return PostResource::collection(
-            Post::all()
+             Post::all()
+            // Post::paginate(4)
        ); 
     }
 
