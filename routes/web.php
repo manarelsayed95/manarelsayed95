@@ -38,8 +38,8 @@ Route::put('/Posts/{Post}','PostController@update')->name('Posts.update');
 
 
 Auth::routes();
-Route::get('login/github', 'Auth\LoginController@redirectToProvider')->name('login.github');
-Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('login/{service}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{service}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
